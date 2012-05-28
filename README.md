@@ -11,16 +11,16 @@ Cross platform framework for building HTML5 native app
 
 Try the demo:
 --------------------------------------
-1. [Full-Function Testing Tool](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk)
+* [Full-Function Testing Tool](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk)
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
-* To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
-* You may type in your webapp link for testing
+1. To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
+2. You may type in your webapp link for testing
 
 
-2. [Simple Example](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk)
+* [Simple Example](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk)
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
-* "Native Service" will be closed automatically when you close the application.
-* Webapp link is hardcoded.
+1. "Native Service" will be closed automatically when you close the application.
+2. Webapp link is hardcoded.
 
 
 The webapp is built using jqmobile, you may find the source [here](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source).
@@ -36,10 +36,10 @@ How to start?
 1. Download all [javascript files](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source/js)
 
 2. Include the following lines in you webapp:
-<script src="jqmobile/jquery.min.js"></script>
-<script type="text/javascript" src="js/weboo/weboo.js"></script>
-<script type="text/javascript" src="js/orochi/orochi.js"></script>
-<script type="text/javascript" src="js/orochi/orochi.ext.js"></script>
+`<script src="jqmobile/jquery.min.js"></script>`
+`<script type="text/javascript" src="js/weboo/weboo.js"></script>`
+`<script type="text/javascript" src="js/orochi/orochi.js"></script>`
+`<script type="text/javascript" src="js/orochi/orochi.ext.js"></script>`
 
 3. Setup your own offline.manifest if you want to have an offline accessible webapp.
 
