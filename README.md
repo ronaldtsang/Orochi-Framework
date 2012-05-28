@@ -12,18 +12,18 @@ Cross platform framework for building HTML5 native app
 Try the demo:
 --------------------------------------
 ### Full-Function Testing Tool ###
-download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk
+install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk
 
-webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
+webapp link(install the above apk first): http://orochis-den.com/orochi_jqmdemo/app.html
 * To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
 * You may type in your webapp link for testing
 * You may open the "webapp link" on your desktop's(or any device within the same local network) browser with extra "GET Parameter": ?serviceIP=192.168.1.x (192.168.1.x is your mobile's IP)
 
 
 ### Simple Example ###
-download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
+install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
 
-webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
+webapp link(install the above apk first): http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
 * "Native Service" will be closed automatically when you close the application.
 * Webapp link is hardcoded.
 
