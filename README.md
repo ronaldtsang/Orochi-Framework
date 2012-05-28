@@ -11,19 +11,19 @@ Cross platform framework for building HTML5 native app
 
 Try the demo:
 --------------------------------------
-* [Full-Function Testing Tool](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk)
+### [Full-Function Testing Tool](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk) ###
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
-1. To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
-2. You may type in your webapp link for testing
+* To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
+* You may type in your webapp link for testing
 
 
-* [Simple Example](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk)
+### [Simple Example](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk) ###
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
-1. "Native Service" will be closed automatically when you close the application.
-2. Webapp link is hardcoded.
+* "Native Service" will be closed automatically when you close the application.
+* Webapp link is hardcoded.
 
 
-The webapp is built using jqmobile, you may find the source [here](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source).
+You may find the demo webapp source [here](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source).
 * this framework is usable without jqmobile, but jquery is a must.
 
 After you start the demo application(with "Native Service" on), your may:
