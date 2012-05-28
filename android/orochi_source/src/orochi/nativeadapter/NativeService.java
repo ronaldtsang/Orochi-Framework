@@ -116,6 +116,7 @@ public class NativeService extends Service {
 	public void stop(){
 		if(engineRunning){
 			nativeEngine.kill();
+			nativeEngine = null;
 			engineRunning = false;
 			Log.d("Orochi", "NativeService: Stopped");
 			//Toast.makeText(this, "Native Service Off", Toast.LENGTH_SHORT).show();
