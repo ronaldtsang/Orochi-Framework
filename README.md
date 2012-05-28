@@ -13,6 +13,7 @@ Try the demo:
 --------------------------------------
 ### Full-Function Testing Tool ###
 download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk
+
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
 * To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
 * You may type in your webapp link for testing
@@ -20,6 +21,7 @@ webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
 
 ### Simple Example ###
 download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
+
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
 * "Native Service" will be closed automatically when you close the application.
 * Webapp link is hardcoded.
