@@ -93,6 +93,12 @@ public class MainActivity extends OrochiActivity {
         	}); 
         	getNativeService().port = 8181; //optional, but better to setup your own port
         	NativeService.serviceName = "Orochi-example"; //optional, but better to setup your own service name
+        	
+        	//optional
+        	//only allow localhost connections:
+        	NativeService.allowIPs = new String[] {"/127.0.0.1"};
+        	//allow all connections
+        	//NativeService.allowIPs = new String[] {"*"};
         	startNativeService();
         };    
     }; 
