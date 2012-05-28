@@ -14,7 +14,7 @@ Try the demo:
 ### Full-Function Testing Tool ###
 install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk
 
-webapp link(install the above apk first): http://orochis-den.com/orochi_jqmdemo/app.html
+webapp link(open the above app first): http://orochis-den.com/orochi_jqmdemo/app.html
 * To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
 * You may type in your webapp link for testing
 * You may open the "webapp link" on your desktop's(or any device within the same local network) browser with extra "GET Parameter": ?serviceIP=192.168.1.x (192.168.1.x is your mobile's IP)
@@ -23,7 +23,7 @@ webapp link(install the above apk first): http://orochis-den.com/orochi_jqmdemo/
 ### Simple Example ###
 install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
 
-webapp link(install the above apk first): http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
+webapp link(open the above app first): http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
 * "Native Service" will be closed automatically when you close the application.
 * Webapp link is hardcoded.
 
@@ -71,7 +71,7 @@ Simple Javascript API:
 [Orochi Framework 1.0 - JS API](https://docs.google.com/document/d/1Rlwf2HBYCG4AafVFCEpuifXhBJuqy3IRdk7cix9ZWe0/edit)
 
 
-The Source Code insludes:
+The Source Code includes:
 --------------------------------------
 1. [JSON in Java](http://www.json.org/java/)
 2. [jQuery](http://jquery.com/)
