@@ -11,13 +11,15 @@ Cross platform framework for building HTML5 native app
 
 Try the demo:
 --------------------------------------
-### [Full-Function Testing Tool](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk) ###
+### Full-Function Testing Tool ###
+download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
 * To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
 * You may type in your webapp link for testing
 
 
-### [Simple Example](https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk) ###
+### Simple Example ###
+download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
 * "Native Service" will be closed automatically when you close the application.
 * Webapp link is hardcoded.
@@ -29,7 +31,7 @@ You may find the demo webapp source [here](https://github.com/downloads/ronaldts
 
 After you start the demo application(with "Native Service" on), your may:
 * open the "webapp link" on your mobile's browser
-* open the "webapp link" on your desktop's() browser with extra "GET Parameter": ?serviceIP=192.168.1.x (192.168.1.x is your mobile's IP)(only work on local network)
+* open the "webapp link" on your desktop's(or any device within the same local network) browser with extra "GET Parameter": ?serviceIP=192.168.1.x (192.168.1.x is your mobile's IP)
 
 
 How to start?
@@ -54,7 +56,7 @@ How to start?
 
 Advance
 --------------------------------------
-To build your own Native API:
+### To build your own Native API: ###
 1. Take a look at the native package [orochi.nativeadapter.RequestHandler](https://github.com/ronaldtsang/Orochi-Framework/tree/master/android/orochi_source/src/orochi/nativeadapter/requesthandler) 
 2. Take a look at the [javascript files](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source/source_js/orochi)(But not the "orochi.js")
 3. I think you should be able to make it XD.
