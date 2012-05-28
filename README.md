@@ -21,6 +21,7 @@ webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
 
 ### Simple Example ###
 download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
+
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
 * "Native Service" will be closed automatically when you close the application.
 * Webapp link is hardcoded.
@@ -39,20 +40,22 @@ How to start?
 --------------------------------------
 1. Download all [javascript files](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_js.zip)
 
-2. Include the following lines in you webapp:
-`<script src="jqmobile/jquery.min.js"></script>`
-`<script type="text/javascript" src="js/weboo/weboo.js"></script>`
-`<script type="text/javascript" src="js/orochi/orochi.js"></script>`
-`<script type="text/javascript" src="js/orochi/orochi.ext.js"></script>`
+2. It is recommended to study the [example webapp](https://github.com/ronaldtsang/Orochi-Framework/blob/master/web_example_with_source/app.html) first.
 
-3. Setup your own offline.manifest if you want to have an offline accessible webapp.
+3. Include the following lines in you webapp:
+`<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>`
+`<script src="js/weboo/weboo.js"></script>`
+`<script src="js/orochi/orochi.js"></script>`
+`<script src="js/orochi/orochi.ext.js"></script>`
 
-4. Download the [example source code](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_android_orochi_example.zip) and modify it to suit your needs. (or you may test it with the "Full-Function Testing Tool" first)
+4. Setup your own offline.manifest if you want to have an offline accessible webapp.
 
-5. change the Hardcoded link in "orochi.example.MainActivity" line 39. 
+5. Download the [example source code](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_android_orochi_example.zip) and modify it to suit your needs. (or you may test it with the "Full-Function Testing Tool" first)
+
+6. change the Hardcoded link in "orochi.example.MainActivity" line 39. 
 `private String urlAddress = "http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example";`
 
-6. Run and have fun...
+7. Run and have fun...
 
 
 Advance
@@ -79,5 +82,3 @@ The Source Code insludes:
 Questions?
 --------------------------------------
 email me: ronaldtsang@orochis-den.com
-
-
