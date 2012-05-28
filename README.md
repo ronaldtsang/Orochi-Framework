@@ -41,10 +41,10 @@ How to start?
 1. Download all [javascript files](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_js.zip)
 
 2. Include the following lines in you webapp:
-`<script src="jqmobile/jquery.min.js"></script>`
-`<script type="text/javascript" src="js/weboo/weboo.js"></script>`
-`<script type="text/javascript" src="js/orochi/orochi.js"></script>`
-`<script type="text/javascript" src="js/orochi/orochi.ext.js"></script>`
+`<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>`
+`<script src="js/weboo/weboo.js"></script>`
+`<script src="js/orochi/orochi.js"></script>`
+`<script src="js/orochi/orochi.ext.js"></script>`
 
 3. Setup your own offline.manifest if you want to have an offline accessible webapp.
 
