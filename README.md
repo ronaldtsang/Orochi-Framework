@@ -17,6 +17,7 @@ download link: https://github.com/ronaldtsang/Orochi-Framework/blob/master/andro
 webapp link: http://orochis-den.com/orochi_jqmdemo/app.html
 * To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
 * You may type in your webapp link for testing
+* You may open the "webapp link" on your desktop's(or any device within the same local network) browser with extra "GET Parameter": ?serviceIP=192.168.1.x (192.168.1.x is your mobile's IP)
 
 
 ### Simple Example ###
@@ -31,9 +32,7 @@ webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-e
 You may find the demo webapp source [here](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_web_example_with_source.zip).
 * this framework is usable without jqmobile, but jquery is a must.
 
-After you start the demo application(with "Native Service" on), your may:
-* open the "webapp link" on your mobile's browser
-* open the "webapp link" on your desktop's(or any device within the same local network) browser with extra "GET Parameter": ?serviceIP=192.168.1.x (192.168.1.x is your mobile's IP)
+After you start the demo application(with "Native Service" on), your may open the "webapp link" on your mobile's browser
 
 
 How to start?
