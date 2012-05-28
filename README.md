@@ -24,7 +24,7 @@ webapp link: http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-e
 
 
 ### For both demo ###
-You may find the demo webapp source [here](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source).
+You may find the demo webapp source [here](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_web_example_with_source.zip).
 * this framework is usable without jqmobile, but jquery is a must.
 
 After you start the demo application(with "Native Service" on), your may:
@@ -34,7 +34,7 @@ After you start the demo application(with "Native Service" on), your may:
 
 How to start?
 --------------------------------------
-1. Download all [javascript files](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source/js)
+1. Download all [javascript files](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_js.zip)
 
 2. Include the following lines in you webapp:
 `<script src="jqmobile/jquery.min.js"></script>`
@@ -44,31 +44,33 @@ How to start?
 
 3. Setup your own offline.manifest if you want to have an offline accessible webapp.
 
-4. Download the [example source code](https://github.com/ronaldtsang/Orochi-Framework/tree/master/android/orochi_example) and modify it to suit your need. (or you may test it with the "Full-Function Testing Tool" first)
+4. Download the [example source code](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_android_orochi_example.zip) and modify it to suit your needs. (or you may test it with the "Full-Function Testing Tool" first)
 
 5. change the Hardcoded link in "orochi.example.MainActivity" line 39. 
 `private String urlAddress = "http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example";`
 
 6. Run and have fun...
 
-### Advance ###
+
+Advance
+--------------------------------------
 To build your own Native API:
-1. Take a look at the native package [orochi.nativeadapter.RequestHandler](https://github.com/ronaldtsang/Orochi-Framework/tree/master/android/orochi_source/src/orochi/nativeadapter/requesthandler) (I think you should be able to make your own XD)
+1. Take a look at the native package [orochi.nativeadapter.RequestHandler](https://github.com/ronaldtsang/Orochi-Framework/tree/master/android/orochi_source/src/orochi/nativeadapter/requesthandler) 
 2. Take a look at the [javascript files](https://github.com/ronaldtsang/Orochi-Framework/tree/master/web_example_with_source/source_js/orochi)(But not the "orochi.js")
-3. I think you should be able to make your own XD.
+3. I think you should be able to make it XD.
 4. Please send it to me, if you think your API is useful to others.
 
 
-simple Javascript API:
+Simple Javascript API:
 --------------------------------------
 [Orochi Framework 1.0 - JS API](https://docs.google.com/document/d/1Rlwf2HBYCG4AafVFCEpuifXhBJuqy3IRdk7cix9ZWe0/edit)
 
 
 The Source Code insludes:
 --------------------------------------
-[JSON in Java](http://www.json.org/java/)
-[jQuery](http://jquery.com/)
-[jQuery Mobile](http://jquerymobile.com/)
+1. [JSON in Java](http://www.json.org/java/)
+2. [jQuery](http://jquery.com/)
+3. [jQuery Mobile](http://jquerymobile.com/)
 
 
 Questions?
