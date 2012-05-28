@@ -1,0 +1,20 @@
+CACHE MANIFEST
+#Orochi demo site 1.0 26-5-2012 1800
+
+NETWORK:
+*
+
+CACHE:
+app.html
+jqmobile/jquery.mobile-1.1.0.min.css
+jqmobile/jquery.min.js
+jqmobile/jquery.mobile-1.1.0.min.js
+jqmobile/images/ajax-loader.gif
+jqmobile/images/ajax-loader.png
+jqmobile/images/icons-18-black.png
+jqmobile/images/icons-18-white.png
+jqmobile/images/icons-36-black.png
+jqmobile/images/icons-36-white.png
+js/weboo/weboo.js
+js/orochi/orochi.js
+js/orochi/orochi.ext.js

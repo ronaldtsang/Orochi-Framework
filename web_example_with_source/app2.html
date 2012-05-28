@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            Orochi Framework
+        </title>
+        <link rel="stylesheet" href="jqmobile/jquery.mobile-1.1.0.min.css" />
+        <style>
+            /* App custom styles */           
+            #media_prev_link{
+                text-align: center;
+            }
+        </style>
+        <script src="jqmobile/jquery.min.js"></script>
+        <script type="text/javascript" src="source_js/weboo/weboo.js"></script>
+        <script type="text/javascript" src="source_js/orochi/orochi.js"></script>
+        <script type="text/javascript" src="source_js/orochi/orochi.accelerometer.js"></script>
+        <script type="text/javascript" src="source_js/orochi/orochi.notification.js"></script>
+        <script type="text/javascript" src="source_js/orochi/orochi.media.js"></script>
+        <script type="text/javascript" src="source_js/orochi/orochi.compass.js"></script>
+        <script type="text/javascript" src="source_js/orochi/orochi.network.js"></script>
+        <script>
+            function getGetParms(){
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for(var i = 0; i < hashes.length; i++)
+                {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }           
+            
+            var flashing = function($obj, period, minOpacity, maxOpacity){
+                var run = true;
+                var iOpacity = function(){
+                    if(run)
+                        $obj.animate({
+                            opacity: maxOpacity
+                        }, period/2, dOpacity);  
+                    else
+                        $obj.css('opacity', 1);
+                }
+                var dOpacity = function(){
+                    if(run)
+                        $obj.animate({
+                            opacity: minOpacity
+                        }, period/2, iOpacity);
+                    else
+                        $obj.css('opacity', 1);                
+                }
+                dOpacity();
+                return {clear: function(){run = false;}}
+            }
+            
+            $(document).bind("pageinit", function(){
+                var flashDString = flashing($('#detectString'), 1200, 0.25, 1);
+                var getParms = getGetParms();
+                
+                orochi = new Orochi({
+                    nativeServiceName: init_args(getParms['serviceName'], 'Orochi'), //optional
+                    nativeServiceDomain: init_args(getParms['serviceIP'], 'localhost'), //optional
+                    nativeServicePort: parseInt(init_args(getParms['servicePort'],8181)), //optional
+                    debugMode: init_args(parseInt(getParms['debugMode']), 0), //optional
+                    onReady:function(){
+                        if(!orochi.hasNativeSupport){
+                            $('#detectString').html('Orochi Native is not avaliable.');
+                            //Return if no native support
+                            return;
+                        }  
+                        
+                        flashDString.clear();
+                        $('#detectString').html('Connected to Orochi Native.');
+                        setTimeout(function(){$('#detectString').fadeOut(500)}, 3000);
+
+                        //Native Support functions:                                              
+                        
+                        //Accelerometer API examples:
+                        $('#getAcceleration_btn').click(function(){
+                            orochi.accelerometer.getAcceleration({
+                                onSuccess:function(acceleration){
+                                   $('#accelerometerReadings').html(
+                                    'Acceleration X: ' + acceleration.x + '<br/>' +
+                                    'Acceleration Y: ' + acceleration.y + '<br/>' +
+                                    'Acceleration Z: ' + acceleration.z
+                                    );
+                                }
+                            }) ;
+                        });
+
+                        var accListener;
+                        var accListenerOn = false;
+                        $('#toggleAcceleration_btn').click(function(){
+                            if(accListenerOn==false){                               
+                               accListener = orochi.accelerometer.listen({
+                                    interval:100,
+                                    onSuccess:function(acceleration){
+                                       $('#accelerometerReadings').html(
+                                        'Acceleration X: ' + acceleration.x + '<br/>' +
+                                        'Acceleration Y: ' + acceleration.y + '<br/>' +
+                                        'Acceleration Z: ' + acceleration.z
+                                        );
+                                    }
+                               }); 
+                               accListenerOn = true;
+                               $('#toggleAcceleration_btn').prev('.ui-btn-inner').html('Stop Listen');
+                            }
+                            else{
+                                accListener.clear();
+                                accListenerOn = false;
+                                $('#toggleAcceleration_btn').prev('.ui-btn-inner').html('Start Listen');
+                            }
+                        });
+                        
+                        //Compass API examples:
+                        $('#getHeading_btn').click(function(){
+                            orochi.compass.getHeading({
+                                onSuccess:function(heading){
+                                   $('#compassReadings').html('Heading: ' + heading);
+                                }
+                            }) ;
+                        });
+
+                        var compListener;
+                        var compListenerOn = false;
+                        $('#toggleCompass_btn').click(function(){
+                            if(compListenerOn==false){                               
+                               compListener = orochi.compass.listen({
+                                    interval:100,
+                                    onSuccess:function(heading){
+                                       $('#compassReadings').html('Heading: ' + heading);
+                                    }
+                               }); 
+                               compListenerOn = true;
+                               $('#toggleCompass_btn').prev('.ui-btn-inner').html('Stop Listen');
+                            }
+                            else{
+                                compListener.clear();
+                                compListenerOn = false;
+                                $('#toggleCompass_btn').prev('.ui-btn-inner').html('Start Listen');
+                            }
+                        });   
+                        
+                        // Flashlight API examples (Only work on some devices):
+                        /*
+                        $('#flashlight_switch').change(function() {
+                            orochi.flashlight.turn({
+                                turnItOn: $(this).val()=='on'
+                            });
+                        });
+                        var flashlightOn = false
+                        $('#toggleFlashlight_btn').click(function(){
+                            orochi.flashlight.turn({
+                                turnItOn: flashlightOn=!flashlightOn
+                            });
+                            $('#toggleFlashlight_btn').prev('.ui-btn-inner').html(flashlightOn?"Turn Off":"Turn On");
+                        });
+                        */
+                        
+                        //preview media file that retreived from Media API
+                        var prevMedia = function(mediaPath, isImage){
+                            var html = '';
+                            var serviceAddress = orochi.getNativeServiceAddress();
+
+                            var fileAddress = serviceAddress+'?fileRequestHandler='+mediaPath;
+
+                            if(isImage==true)
+                                html = 'Selected file:/'+mediaPath+'<br/><img style="max-width:90%" src="'+fileAddress+'" />';
+                            else
+                                html = 'Selected <a href="'+fileAddress+'">file:/'+mediaPath+'</a>';
+
+                                
+                            $('#media_prev_link').html(html);
+                        }
+                        
+                        //Media API examples:
+                        $('#get_image_btn').click(function(){
+                            orochi.media.get({
+                                mediaType: 'image',
+                                onSuccess: function(mediaPath){
+                                    prevMedia(mediaPath, true);                                   
+                                }
+                            });
+                        });
+                        $('#get_audio_btn').click(function(){
+                            orochi.media.get({
+                                mediaType: 'audio',
+                                onSuccess: function(mediaPath){
+                                    prevMedia(mediaPath, false);                                   
+                                }
+                            });
+                        });      
+                        $('#get_video_btn').click(function(){
+                            orochi.media.get({
+                                mediaType: 'video',
+                                onSuccess: function(mediaPath){
+                                    prevMedia(mediaPath, false);                                   
+                                }
+                            });
+                        });    
+                        $('#capture_image_btn').click(function(){
+                            orochi.media.capture({
+                                mediaType: 'image',
+                                onSuccess: function(mediaPath){
+                                    prevMedia(mediaPath, true);                                  
+                                }
+                            });
+                        });
+                        $('#capture_audio_btn').click(function(){
+                            orochi.media.capture({
+                                mediaType: 'audio',
+                                onSuccess: function(mediaPath){
+                                    prevMedia(mediaPath, false);                                     
+                                }
+                            });
+                        });      
+                        $('#capture_video_btn').click(function(){
+                            orochi.media.capture({
+                                mediaType: 'video',
+                                onSuccess: function(mediaPath){
+                                    prevMedia(mediaPath, false);                                     
+                                }
+                            });
+                        });       
+                        
+                        //Network API examples:
+                        $('#getConnType_btn').click(function(){
+                            orochi.network.getConnType({
+                                onSuccess:function(connType){
+                                   $('#connType').html('Connection Type: ' + connType);
+                                }
+                            }) ;                        
+                        });                        
+                        
+                        //Notification API examples:
+                        $('#alert_btn').click(function(){
+                            orochi.notification.alert({
+                                msg: 'This is an alert.'
+                            }) ;
+                        });
+                        
+                        $('#confirmAlert_btn').click(function(){
+                            orochi.notification.alert({
+                                msg: 'This is a confirm alert.',
+                                isConfirmAlert: true,
+                                onSuccess: function(buttonPressed){
+                                    btn = ["OK", "Cancel"];
+                                    orochi.notification.alert({
+                                        msg: btn[buttonPressed]+' button pressed.'
+                                    });
+                                }
+                            }) ;
+                        });
+                        $('#beep_btn').click(function(){
+                            orochi.notification.beep();
+                        });
+                        $('#vibrate_btn').click(function(){
+                            orochi.notification.vibrate();
+                        });                      
+
+                    }
+                });              
+                
+            });
+        </script>        
+        <script src="jqmobile/jquery.mobile-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="mainPage">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    Orochi Framework
+                </h3>
+            </div>
+            <div data-role="content">
+                <div style="text-align:center;">
+                    <b id="detectString">
+                        Detecting Orochi Native...
+                    </b>
+                </div>                
+                <div data-role="collapsible-set" data-theme="a" data-content-theme="">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            Accelerometer
+                        </h3>
+                        <div>
+                            <h4>Accelerometer Readings:</h4>
+                            <div id="accelerometerReadings"></div>
+                        </div>
+                        <input id="getAcceleration_btn" data-theme="a" data-inline="true" value="Get Current" type="button" />
+                        <input id="toggleAcceleration_btn" data-theme="a" data-inline="true" value="Start Listen" type="button" />                     
+                    </div>      
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Compass
+                        </h3>
+                        <div>
+                            <h4>Compass Readings:</h4>
+                            <div id="compassReadings"></div>
+                        </div>
+                        <input id="getHeading_btn" data-theme="a" data-inline="true" value="Get Current" type="button" />
+                        <input id="toggleCompass_btn" data-theme="a" data-inline="true" value="Start Listen" type="button" />                    
+                    </div>     
+                    <!--
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Flashlight (Only work on some devices)
+                        </h3>
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="flashlight_switch">
+                                    Flashlight:
+                                </label>
+                                 <input id="toggleFlashlight_btn" data-theme="a" data-inline="true" value="Turn On" type="button" />
+                            </fieldset>
+                        </div>
+                    </div>
+                    -->
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Media
+                        </h3>
+
+                        <div id="media_prev_link"></div>
+                        <input id="get_image_btn" data-theme="a" data-inline="true" value="Get Image" type="button" />
+                        <input id="get_audio_btn" data-theme="a" data-inline="true" value="Get Audio" type="button" />
+                        <input id="get_video_btn" data-theme="a" data-inline="true" value="Get Video" type="button" />
+                        <input id="capture_image_btn" data-theme="a" data-inline="true" value="Capture Image" type="button" />
+                        <input id="capture_audio_btn" data-theme="a" data-inline="true" value="Capture Audio" type="button" />
+                        <input id="capture_video_btn" data-theme="a" data-inline="true" value="Capture Video" type="button" />
+                    </div>    
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Netwok
+                        </h3>
+                        <div>
+                            <div id="connType"></div>
+                        </div>
+                        <input id="getConnType_btn" data-theme="a" data-inline="true" value="Get Connection Type" type="button" />                    
+                    </div>                      
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Notification
+                        </h3>
+
+                        <input id="alert_btn" data-theme="a" data-inline="true" value="Alert" type="button" />
+                        <input id="confirmAlert_btn" data-theme="a" data-inline="true" value="Confirm Alert" type="button" />
+                        <input id="beep_btn" data-theme="a" data-inline="true" value="Beep" type="button" />
+                        <input id="vibrate_btn" data-theme="a" data-inline="true" value="Vibrate" type="button" />
+                    </div>                                       
+                </div>
+                <div style="height: 200px;width:100%;"></div>
+                <div style="text-align:center">by Ronald Tsang<br/>ronaldtsang@orochis-den.com</div>
+            </div>
+        </div>
+    </body>
+</html>
