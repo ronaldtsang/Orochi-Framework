@@ -12,7 +12,7 @@ Cross platform framework for building HTML5 native app
 Try the demo:
 --------------------------------------
 ### Full-Function Testing Tool ###
-install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_source.apk
+install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/orochi_source_1.0.apk/qr_code
 
 webapp link(open the above app first): http://orochis-den.com/orochi_jqmdemo/app.html
 * To close the application: you must turn off the "Native Service" first, else the "Native Service" will keep running.
@@ -21,7 +21,7 @@ webapp link(open the above app first): http://orochis-den.com/orochi_jqmdemo/app
 
 
 ### Simple Example ###
-install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/blob/master/android/orochi_example.apk
+install and open the Application: https://github.com/ronaldtsang/Orochi-Framework/orochi_example_1.0.apk/qr_code
 
 webapp link(open the above app first): http://orochis-den.com/orochi_jqmdemo/app.html?serviceName=Orochi-example
 * "Native Service" will be closed automatically when you close the application.
