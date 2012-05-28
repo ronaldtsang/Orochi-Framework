@@ -48,7 +48,7 @@ How to start?
 `<script src="js/orochi/orochi.js"></script>`
 `<script src="js/orochi/orochi.ext.js"></script>`
 
-4. Setup your own offline.manifest if you want to have an offline accessible webapp.
+4. Setup your own [offline.manifest](https://github.com/ronaldtsang/Orochi-Framework/blob/master/web_example_with_source/offline.manifest) if you want to have an offline accessible webapp.
 
 5. Download the [example source code](https://github.com/downloads/ronaldtsang/Orochi-Framework/orochi_1.0_android_orochi_example.zip) and modify it to suit your needs. (or you may test it with the "Full-Function Testing Tool" first)
 
