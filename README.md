@@ -1,4 +1,4 @@
-Orochi-Framework (Version 1.0)
+Orochi-Framework (Version 1.0) - Discontinued
 ==================================================
 
 Orochi-Framwork is a:
@@ -80,4 +80,4 @@ The Source Code includes:
 
 Questions?
 --------------------------------------
-email me: ronaldtsang@orochis-den.com
+email me: tsanghim@gmail.com
